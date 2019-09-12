@@ -25,6 +25,8 @@ namespace AutoMapper.Mappers
 
             var destList = destination.ToLookup(x => equivalentComparer.GetHashCode(x)).ToDictionary(x => x.Key, x => x.ToList());
 
+            //No removing of missing items
+            /*
             var items = source.Select(x =>
             {
                 var sourceHash = equivalentComparer.GetHashCode(x);
@@ -41,6 +43,7 @@ namespace AutoMapper.Mappers
                 }
                 return new { SourceItem = x, DestinationItem = item };
             });
+            */
 
             foreach (var keypair in items)
             {
@@ -53,11 +56,14 @@ namespace AutoMapper.Mappers
                     context.Mapper.Map(keypair.SourceItem, keypair.DestinationItem, context);
                 }
             }
-
+            
+            //No removing
+            /*
             foreach (var removedItem in destList.SelectMany(x => x.Value))
             {
                 destination.Remove(removedItem);
             }
+            */
 
             return destination;
         }
