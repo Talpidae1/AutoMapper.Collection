@@ -29,7 +29,7 @@ If ID's match will map OrderDTO to Order
 
 If OrderDTO exists and Order doesn't add to collection
 
-If Order exists and OrderDTO doesn't remove from collection
+~~If Order exists and OrderDTO doesn't remove from collection~~
 
 Why update collection?  Just recreate it 
 -------------------------------
